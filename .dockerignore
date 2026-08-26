@@ -1,0 +1,14 @@
+.git
+.next
+node_modules
+.vs
+architecture
+config
+deploy
+packages
+services
+*.md
+*.png
+*.svg
+!public/**/*.svg
+!public/**/*.png
