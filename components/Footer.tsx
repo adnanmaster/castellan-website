@@ -43,9 +43,19 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="section-shell flex flex-col gap-3 py-6 text-xs text-quiet sm:flex-row sm:items-center sm:justify-between">
+        <div className="section-shell flex flex-col gap-4 py-6 text-xs text-quiet md:flex-row md:items-center md:justify-between">
           <p>&copy; 2026 Castellan. Alle Rechte vorbehalten.</p>
-          <p>Kapsule ist ein Produkt von Castellan.</p>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+            <p>Kapsule ist ein Produkt von Castellan.</p>
+            <nav aria-label="Rechtliche Navigation" className="flex items-center gap-5">
+              <Link href="/impressum" className="inline-flex min-h-8 items-center transition-colors hover:text-copy">
+                Impressum
+              </Link>
+              <Link href="/datenschutz" className="inline-flex min-h-8 items-center transition-colors hover:text-copy">
+                Datenschutz
+              </Link>
+            </nav>
+          </div>
         </div>
       </div>
     </footer>
