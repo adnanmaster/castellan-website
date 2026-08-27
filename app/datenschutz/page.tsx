@@ -50,8 +50,8 @@ export default function PrivacyPage() {
                 8004 Zürich, Schweiz
                 <br />
                 E-Mail:{" "}
-                <a className="text-copy underline decoration-white/30 underline-offset-4 hover:decoration-accent" href="mailto:adnanhalder@proton.ch">
-                  adnanhalder@proton.ch
+                <a className="text-copy underline decoration-white/30 underline-offset-4 hover:decoration-accent" href="mailto:adnanhalder@protonmail.com">
+                  adnanhalder@protonmail.com
                 </a>
                 <br />
                 Telefon: +41 76 564 43 69
@@ -164,8 +164,8 @@ export default function PrivacyPage() {
             <PrivacySection title="11. Rechte betroffener Personen">
               <p>
                 Sie können im Rahmen des anwendbaren Datenschutzrechts insbesondere Auskunft über bearbeitete Personendaten sowie deren Berichtigung, Löschung oder Herausgabe verlangen und einer bestimmten Bearbeitung widersprechen. Für entsprechende Anliegen schreiben Sie an{" "}
-                <a className="text-copy underline decoration-white/30 underline-offset-4 hover:decoration-accent" href="mailto:adnanhalder@proton.ch">
-                  adnanhalder@proton.ch
+                <a className="text-copy underline decoration-white/30 underline-offset-4 hover:decoration-accent" href="mailto:adnanhalder@protonmail.com">
+                  adnanhalder@protonmail.com
                 </a>.
               </p>
               <p>

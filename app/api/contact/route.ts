@@ -66,6 +66,30 @@ function cleanHeaderValue(value: string) {
   return value.replace(/[\r\n]+/g, " ").trim();
 }
 
+function cleanEnvironmentValue(value: string | undefined, fallback = "") {
+  return (value ?? fallback).trim().replace(/^(["'])(.*)\1$/, "$2").trim();
+}
+
+function deliveryErrorMessage(status: number) {
+  if (status === 401) {
+    return "Der Versanddienst ist noch nicht korrekt eingerichtet (Fehler E401).";
+  }
+
+  if (status === 403) {
+    return "Resend hat den Testversand für diese Empfängeradresse abgelehnt (Fehler E403).";
+  }
+
+  if (status === 422) {
+    return "Die Absender- oder Empfängeradresse ist noch nicht korrekt konfiguriert (Fehler E422).";
+  }
+
+  if (status === 429) {
+    return "Der Versanddienst hat derzeit zu viele Anfragen erhalten. Bitte versuchen Sie es später erneut (Fehler E429).";
+  }
+
+  return `Die Anfrage konnte gerade nicht zugestellt werden (Fehler E${status}).`;
+}
+
 export async function POST(request: NextRequest) {
   const contentType = request.headers.get("content-type") ?? "";
   const contentLength = Number(request.headers.get("content-length") ?? 0);
@@ -127,15 +151,18 @@ export async function POST(request: NextRequest) {
     });
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
+  const apiKey = cleanEnvironmentValue(process.env.RESEND_API_KEY);
 
   if (!apiKey) {
     console.error("Contact form delivery is not configured: RESEND_API_KEY is missing.");
     return json("Der Versand ist vorübergehend nicht verfügbar. Bitte kontaktieren Sie uns per E-Mail.", 503);
   }
 
-  const from = process.env.CONTACT_FROM_EMAIL || "Castellan Website <onboarding@resend.dev>";
-  const to = process.env.CONTACT_TO_EMAIL || "adnanhalder@proton.ch";
+  const from = cleanEnvironmentValue(
+    process.env.CONTACT_FROM_EMAIL,
+    "Castellan Website <onboarding@resend.dev>",
+  );
+  const to = cleanEnvironmentValue(process.env.CONTACT_TO_EMAIL, "adnanhalder@protonmail.com");
   const safeCompany = cleanHeaderValue(company).slice(0, 80);
   const emailText = [
     "Neue Kontaktanfrage über die Castellan-Website",
@@ -168,8 +195,16 @@ export async function POST(request: NextRequest) {
     });
 
     if (!response.ok) {
-      console.error("Contact form delivery failed.", { status: response.status });
-      return json("Die Anfrage konnte gerade nicht zugestellt werden. Bitte versuchen Sie es später erneut.", 502);
+      const providerError = (await response.json().catch(() => null)) as
+        | { message?: string; name?: string }
+        | null;
+
+      console.error("Contact form delivery failed.", {
+        status: response.status,
+        type: providerError?.name,
+        message: providerError?.message,
+      });
+      return json(deliveryErrorMessage(response.status), 502);
     }
   } catch (error) {
     console.error("Contact form delivery failed.", {

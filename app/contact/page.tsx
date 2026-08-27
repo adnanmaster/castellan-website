@@ -23,7 +23,7 @@ const contactDetails = [
   },
   {
     label: "E-Mail",
-    value: "adnanhalder@proton.ch",
+    value: "adnanhalder@protonmail.com",
     note: "Antwort auf Ihre Anfrage",
     icon: Mail,
   },

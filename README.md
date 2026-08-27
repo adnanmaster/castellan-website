@@ -77,7 +77,7 @@ Die benötigten Variablen sind in `.env.example` dokumentiert. Für die lokale E
 ```env
 RESEND_API_KEY=re_...
 CONTACT_FROM_EMAIL="Castellan Website <onboarding@resend.dev>"
-CONTACT_TO_EMAIL=adnanhalder@proton.ch
+CONTACT_TO_EMAIL=adnanhalder@protonmail.com
 ```
 
 `RESEND_API_KEY` wird im Resend-Dashboard erstellt. Die Testadresse `onboarding@resend.dev` kann nur an die E-Mail-Adresse des eigenen Resend-Kontos senden. Für den produktiven Betrieb sollte eine eigene Versanddomain in Resend verifiziert und `CONTACT_FROM_EMAIL` beispielsweise auf `Castellan Website <kontakt@castellan.ch>` gesetzt werden.
