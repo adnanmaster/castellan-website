@@ -69,11 +69,6 @@ export default function ImprintPage() {
             </p>
           </div>
 
-          <aside className="mt-12 max-w-3xl border border-accent/30 bg-accent/[0.08] p-5 text-sm leading-6 text-muted" aria-label="Hinweis zum Entwurfsstatus">
-            <strong className="text-copy">Entwurf – noch nicht als finaler Rechtstext verwenden.</strong>{" "}
-            Der gesamte Text muss vor der Veröffentlichung fachlich geprüft werden.
-          </aside>
-
           <div className="mt-10 max-w-3xl divide-y divide-white/10 border-y border-white/10">
             {details.map((detail) => (
               <section key={detail.title} className="grid gap-4 py-8 sm:grid-cols-[0.42fr_0.58fr] sm:gap-10">
@@ -94,7 +89,7 @@ export default function ImprintPage() {
             </section>
           </div>
 
-          <p className="mt-8 text-xs text-quiet">Stand: Entwurf vom 27. August 2026</p>
+          <p className="mt-8 text-xs text-quiet">Stand: 27. August 2026</p>
         </div>
       </section>
     </main>
