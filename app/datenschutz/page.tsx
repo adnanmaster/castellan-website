@@ -94,10 +94,13 @@ export default function PrivacyPage() {
 
             <PrivacySection title="5. Kontaktaufnahme und Kommunikation">
               <p>
-                Wenn Sie Castellan telefonisch oder per E-Mail kontaktieren, bearbeiten wir die von Ihnen übermittelten Angaben. Dazu können Name, Unternehmen, Funktion, geschäftliche Kontaktdaten, Inhalt der Anfrage und technische Kommunikationsdaten gehören. Die Bearbeitung erfolgt, um Ihre Anfrage zu beantworten, einen Gesprächstermin vorzubereiten oder einen möglichen Pilotbetrieb zu besprechen.
+                Wenn Sie Castellan über das Kontaktformular, telefonisch oder per E-Mail kontaktieren, bearbeiten wir die von Ihnen übermittelten Angaben. Dazu können Name, Unternehmen, Funktion, geschäftliche Kontaktdaten, Inhalt der Anfrage und technische Kommunikationsdaten gehören. Die Bearbeitung erfolgt, um Ihre Anfrage zu beantworten, einen Gesprächstermin vorzubereiten oder einen möglichen Pilotbetrieb zu besprechen.
               </p>
               <p>
-                Das Kontaktformular auf dieser Website ist derzeit noch nicht aktiv und übermittelt keine Daten. Nach seiner Aktivierung wird dieser Abschnitt um den Versanddienstleister und den konkreten Übermittlungsweg ergänzt. Abgeschlossene Anfragen werden gelöscht, sobald sie für die Bearbeitung und eine mögliche Geschäftsbeziehung nicht mehr benötigt werden und keine gesetzlichen oder vertraglichen Aufbewahrungspflichten entgegenstehen. Eingehende Kontaktanfragen verwenden wir nicht für sachfremde Werbung.
+                Beim Absenden des Kontaktformulars werden Name, geschäftliche E-Mail-Adresse, Unternehmen und Nachricht verschlüsselt an unsere Website übermittelt und über den E-Mail-Versanddienst Resend an unser Postfach bei Proton zugestellt. Zur Missbrauchsabwehr werden ausserdem technische Anfragedaten wie Zeitpunkt und IP-Adresse vorübergehend verarbeitet. Das Formular legt keine eigene Kundendatenbank an.
+              </p>
+              <p>
+                Abgeschlossene Anfragen werden gelöscht, sobald sie für die Bearbeitung und eine mögliche Geschäftsbeziehung nicht mehr benötigt werden und keine gesetzlichen oder vertraglichen Aufbewahrungspflichten entgegenstehen. Eingehende Kontaktanfragen verwenden wir nicht für sachfremde Werbung.
               </p>
             </PrivacySection>
 
@@ -130,6 +133,16 @@ export default function PrivacyPage() {
             <PrivacySection title="8. Empfänger und Dienstleister">
               <p>
                 Personendaten werden nur an Dienstleister weitergegeben, soweit dies für Hosting, Kommunikation, Betrieb oder Sicherheit erforderlich ist, oder wenn eine gesetzliche Pflicht besteht. Dienstleister werden auf ihre Aufgaben beschränkt und, soweit erforderlich, vertraglich zur angemessenen Bearbeitung und Datensicherheit verpflichtet.
+              </p>
+              <p>
+                Für den Versand von Kontaktanfragen nutzen wir Resend, einen Dienst der Plus Five Five, Inc. Dabei können E-Mail-Adresse, Nachrichteninhalt und technische Versanddaten in den USA oder weiteren Ländern bearbeitet werden. Hinweise dazu finden Sie in der{" "}
+                <a className="text-copy underline decoration-white/30 underline-offset-4 hover:decoration-accent" href="https://resend.com/legal/privacy-policy" target="_blank" rel="noreferrer">
+                  Datenschutzerklärung von Resend
+                </a>{" "}
+                und im{" "}
+                <a className="text-copy underline decoration-white/30 underline-offset-4 hover:decoration-accent" href="https://resend.com/legal/dpa" target="_blank" rel="noreferrer">
+                  Data Processing Addendum
+                </a>.
               </p>
               <p>
                 Für Kapsule werden Unterauftragnehmer und allfällige Bearbeitungen im Ausland vor dem jeweiligen Pilotbetrieb gegenüber dem Kunden dokumentiert. Kundendaten werden nicht verkauft.

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Clock3, Mail, MapPin, Phone } from "lucide-react";
+import ContactForm from "@/components/ContactForm";
 import MediaPlaceholder from "@/components/MediaPlaceholder";
 
 export const metadata: Metadata = {
@@ -22,8 +23,8 @@ const contactDetails = [
   },
   {
     label: "E-Mail",
-    value: "Wird vor dem Launch ergänzt",
-    note: "Kein erfundener Kontaktkanal",
+    value: "adnanhalder@proton.ch",
+    note: "Antwort auf Ihre Anfrage",
     icon: Mail,
   },
 ];
@@ -75,7 +76,7 @@ export default function ContactPage() {
               Erreichbar, wenn es darauf ankommt.
             </h2>
             <p className="mt-5 text-base leading-7 text-muted">
-              Die Formularfunktion folgt in einem separaten Umsetzungsschritt. Bis dahin bleibt der direkte telefonische Kontakt sichtbar.
+              Schreiben Sie uns kurz, worum es geht. Wir prüfen Ihre Anfrage persönlich und melden uns mit einer klaren Einschätzung zurück.
             </p>
 
             <div className="mt-9 grid gap-px overflow-hidden border border-white/10 bg-white/10">
@@ -98,77 +99,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="surface-card p-6 sm:p-8 md:p-10">
-            <div className="flex flex-col gap-4 border-b border-white/10 pb-7 sm:flex-row sm:items-start sm:justify-between">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">Formularvorschau</p>
-                <h2 className="mt-3 text-2xl font-semibold tracking-[-0.025em] text-copy">Pilotgespräch anfragen</h2>
-              </div>
-              <span className="w-fit rounded-full border border-white/12 bg-white/[0.04] px-3 py-1.5 text-xs font-semibold text-muted">
-                Versand folgt später
-              </span>
-            </div>
-
-            <p id="form-status" className="mt-6 rounded-sm border border-accent/20 bg-accent/[0.06] p-4 text-sm leading-6 text-muted">
-              Dieses Formular ist bewusst noch nicht aktiv. Die Felder zeigen bereits das geplante Erscheinungsbild, übertragen aber keine Daten.
-            </p>
-
-            <form aria-describedby="form-status" className="mt-7">
-              <fieldset disabled className="grid gap-5 disabled:cursor-not-allowed">
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <label className="text-sm font-medium text-copy">
-                    Name
-                    <input
-                      name="name"
-                      type="text"
-                      autoComplete="name"
-                      className="mt-3 h-12 w-full border border-white/15 bg-black/25 px-4 text-copy placeholder:text-muted disabled:cursor-not-allowed disabled:opacity-80"
-                      placeholder="Max Mustermann"
-                    />
-                  </label>
-                  <label className="text-sm font-medium text-copy">
-                    Geschäftliche E-Mail
-                    <input
-                      name="email"
-                      type="email"
-                      autoComplete="email"
-                      className="mt-3 h-12 w-full border border-white/15 bg-black/25 px-4 text-copy placeholder:text-muted disabled:cursor-not-allowed disabled:opacity-80"
-                      placeholder="max@unternehmen.ch"
-                    />
-                  </label>
-                </div>
-
-                <label className="text-sm font-medium text-copy">
-                  Unternehmen
-                  <input
-                    name="company"
-                    type="text"
-                    autoComplete="organization"
-                    className="mt-3 h-12 w-full border border-white/15 bg-black/25 px-4 text-copy placeholder:text-muted disabled:cursor-not-allowed disabled:opacity-80"
-                    placeholder="Name Ihres Unternehmens"
-                  />
-                </label>
-
-                <label className="text-sm font-medium text-copy">
-                  Worum geht es?
-                  <textarea
-                    name="message"
-                    rows={6}
-                    className="mt-3 w-full resize-none border border-white/15 bg-black/25 px-4 py-3 text-copy placeholder:text-muted disabled:cursor-not-allowed disabled:opacity-80"
-                    placeholder="Umgebung, Herausforderungen und Ziel des möglichen Pilotbetriebs"
-                  />
-                </label>
-
-                <button
-                  type="button"
-                  disabled
-                  className="mt-1 inline-flex min-h-12 w-fit cursor-not-allowed items-center justify-center rounded-lg bg-white/12 px-6 text-sm font-semibold text-muted"
-                >
-                  Versand wird später aktiviert
-                </button>
-              </fieldset>
-            </form>
-          </div>
+          <ContactForm />
         </div>
       </section>
     </main>

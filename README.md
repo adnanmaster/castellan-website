@@ -30,9 +30,11 @@ Der Auftritt konzentriert sich auf drei Grundsätze:
 | --- | --- |
 | `/` | Unternehmenspositionierung, Arbeitsweise und Kapsule-Einstieg |
 | `/product` | Funktionsweise, Schutzkategorien und Pilotprogramm von Kapsule |
-| `/contact` | Kontaktinformationen und Vorschau des späteren Anfrageformulars |
+| `/contact` | Kontaktinformationen und funktionsfähiges Anfrageformular |
+| `/impressum` | Impressum und Haftungsausschluss |
+| `/datenschutz` | Datenschutzerklärung für Website, Kontakte und Pilotbetrieb |
 
-Das Kontaktformular ist aktuell bewusst deaktiviert und überträgt keine Daten.
+Das Kontaktformular validiert Anfragen serverseitig, begrenzt wiederholte Einsendungen und leitet Nachrichten ohne eigene Kontaktdatenbank über Resend an das konfigurierte Postfach weiter.
 
 ## Technologie
 
@@ -67,6 +69,20 @@ pnpm start -- -p 3001
 ```
 
 Der Build prüft TypeScript, kompiliert alle Seiten und erzeugt die optimierte Produktionsversion.
+
+## Kontaktformular konfigurieren
+
+Die benötigten Variablen sind in `.env.example` dokumentiert. Für die lokale Entwicklung eine Datei `.env.local` anlegen:
+
+```env
+RESEND_API_KEY=re_...
+CONTACT_FROM_EMAIL="Castellan Website <onboarding@resend.dev>"
+CONTACT_TO_EMAIL=adnanhalder@proton.ch
+```
+
+`RESEND_API_KEY` wird im Resend-Dashboard erstellt. Die Testadresse `onboarding@resend.dev` kann nur an die E-Mail-Adresse des eigenen Resend-Kontos senden. Für den produktiven Betrieb sollte eine eigene Versanddomain in Resend verifiziert und `CONTACT_FROM_EMAIL` beispielsweise auf `Castellan Website <kontakt@castellan.ch>` gesetzt werden.
+
+In Vercel dieselben Werte unter **Settings → Environment Variables** hinterlegen und danach ein neues Deployment auslösen. Secrets gehören nie in Git.
 
 ## Bilder austauschen
 
@@ -113,7 +129,6 @@ Geplante nächste Schritte:
 
 - kuratierte Markenbilder anstelle der verbleibenden Platzhalter
 - finales Farb- und Kontrast-Finetuning
-- funktionsfähiges und datenschutzkonformes Kontaktformular
 - finale Domain-, Open-Graph- und SEO-Konfiguration vor dem Launch
 
 ---
