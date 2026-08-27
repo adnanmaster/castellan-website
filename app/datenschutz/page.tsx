@@ -38,10 +38,7 @@ export default function PrivacyPage() {
             </p>
           </div>
 
-          <aside className="mt-12 max-w-3xl border border-accent/30 bg-accent/[0.08] p-5 text-sm leading-6 text-muted" aria-label="Hinweis zum Entwurfsstatus">
-            <strong className="text-copy">Arbeitsentwurf – vor dem produktiven Einsatz fachlich prüfen.</strong>{" "}
-            Vor der Aktivierung des Kontaktformulars und vor jedem Pilotbetrieb müssen insbesondere eingesetzte Dienstleister, Speicherorte, Löschfristen und Unterauftragnehmer abschliessend dokumentiert werden.
-          </aside>
+      
 
           <div className="mt-10 max-w-3xl divide-y divide-white/10 border-y border-white/10">
             <PrivacySection title="1. Verantwortliche Stelle">
