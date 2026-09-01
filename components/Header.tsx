@@ -7,10 +7,9 @@ import { useEffect, useState } from "react";
 import BrandLogo from "@/components/BrandLogo";
 
 const navigation = [
-  { label: "Unternehmen", href: "/#unternehmen" },
-  { label: "Kapsule", href: "/product" },
-  { label: "Arbeitsweise", href: "/#arbeitsweise" },
-  { label: "Kontakt", href: "/contact" },
+  { label: "Kapsule", href: "/product", activeRoutes: ["/product"] },
+  { label: "Leistungen", href: "/leistungen", activeRoutes: ["/leistungen", "/it-consulting", "/digitale-praesenz"] },
+  { label: "Über uns", href: "/about", activeRoutes: ["/about"] },
 ];
 
 export default function Header() {
@@ -41,7 +40,7 @@ export default function Header() {
 
         <nav aria-label="Hauptnavigation" className="hidden items-center gap-1 text-sm lg:flex">
           {navigation.map((item) => {
-            const active = !item.href.includes("#") && pathname === item.href;
+            const active = item.activeRoutes.includes(pathname);
 
             return (
               <Link
@@ -71,7 +70,7 @@ export default function Header() {
               filled ? "bg-ink text-copy hover:bg-accent hover:text-ink" : "bg-copy text-ink hover:bg-accent"
             }`}
           >
-            Pilotpartner werden
+            Gespräch vereinbaren
             <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
           </Link>
 
@@ -94,7 +93,7 @@ export default function Header() {
         <nav id="mobile-navigation" aria-label="Mobile Navigation" className="border-t border-black/10 lg:hidden">
           <div className="section-shell grid gap-1 py-4">
             {navigation.map((item) => {
-              const active = !item.href.includes("#") && pathname === item.href;
+              const active = item.activeRoutes.includes(pathname);
 
               return (
                 <Link
@@ -116,7 +115,7 @@ export default function Header() {
               onClick={() => setMenuOpen(false)}
               className="mt-3 inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-ink px-5 text-sm font-semibold text-copy"
             >
-              Pilotpartner werden
+              Gespräch vereinbaren
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>

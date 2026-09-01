@@ -3,10 +3,10 @@
 
 # Castellan
 
-### Cybersecurity für Schweizer KMU – klar, konsequent und transparent.
+### Digitale Lösungen für Schweizer KMU – klar, konsequent und transparent.
 
-Die öffentliche Unternehmens- und Produktwebsite von **Castellan**.<br>
-**Kapsule** ist das erste Produkt: ein fokussierter DNS-Schutz, der riskante Verbindungen stoppt, bevor sie entstehen.
+Die öffentliche Unternehmens- und Leistungswebsite von **Castellan**.<br>
+Das Angebot verbindet **Kapsule**, **IT Consulting** und **digitale Präsenz**.
 
 </div>
 
@@ -14,7 +14,7 @@ Die öffentliche Unternehmens- und Produktwebsite von **Castellan**.<br>
 
 ## Über das Projekt
 
-Diese Website bildet den digitalen Markenauftritt von Castellan. Sie positioniert das Unternehmen als modernen und verlässlichen Cybersecurity-Partner für Schweizer KMU und stellt mit Kapsule das erste Pilotprodukt vor.
+Diese Website bildet den digitalen Markenauftritt von Castellan. Sie stellt das Unternehmen und seine drei Leistungsbereiche für Schweizer KMU vor: das Cybersecurity-Produkt Kapsule, IT Consulting und digitale Präsenz.
 
 Der Auftritt konzentriert sich auf drei Grundsätze:
 
@@ -29,7 +29,11 @@ Der Auftritt konzentriert sich auf drei Grundsätze:
 | Route | Inhalt |
 | --- | --- |
 | `/` | Unternehmenspositionierung, Arbeitsweise und Kapsule-Einstieg |
+| `/leistungen` | Übersicht über Kapsule, IT Consulting und digitale Präsenz |
 | `/product` | Funktionsweise, Schutzkategorien und Pilotprogramm von Kapsule |
+| `/it-consulting` | Beratung, technische Einordnung und Umsetzungsbegleitung |
+| `/digitale-praesenz` | Positionierung, Webdesign und technische Umsetzung |
+| `/about` | Unternehmen, Anspruch und Arbeitsprinzipien von Castellan |
 | `/contact` | Kontaktinformationen und funktionsfähiges Anfrageformular |
 | `/impressum` | Impressum und Haftungsausschluss |
 | `/datenschutz` | Datenschutzerklärung für Website, Kontakte und Pilotbetrieb |
@@ -102,7 +106,11 @@ Eine bestehende Datei kann unter demselben Namen ersetzt werden. Dadurch sind ke
 castellan-website/
 ├── app/
 │   ├── contact/        # Kontaktseite
+│   ├── about/          # Über Castellan
+│   ├── leistungen/     # Leistungsübersicht
 │   ├── product/        # Kapsule-Produktseite
+│   ├── it-consulting/  # IT Consulting
+│   ├── digitale-praesenz/ # Digitale Präsenz
 │   ├── globals.css     # Farben, Oberflächen und globale Styles
 │   ├── layout.tsx      # Metadaten, Fonts und gemeinsames Layout
 │   └── page.tsx        # Startseite

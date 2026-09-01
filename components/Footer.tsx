@@ -3,9 +3,10 @@ import { ArrowUpRight } from "lucide-react";
 import BrandLogo from "@/components/BrandLogo";
 
 const links = [
-  { label: "Unternehmen", href: "/#unternehmen" },
+  { label: "Leistungen", href: "/leistungen" },
   { label: "Kapsule", href: "/product" },
-  { label: "Arbeitsweise", href: "/#arbeitsweise" },
+  { label: "Digitale Präsenz", href: "/digitale-praesenz" },
+  { label: "Über uns", href: "/about" },
   { label: "Kontakt", href: "/contact" },
 ];
 
@@ -19,7 +20,7 @@ export default function Footer() {
             Digitale Sicherheit. Schweizerisch konsequent.
           </p>
           <p className="mt-4 max-w-md text-sm leading-6 text-muted">
-            Castellan entwickelt fokussierte und transparente Cybersecurity-Lösungen für Schweizer KMU.
+            Castellan unterstützt Schweizer KMU mit fokussierter Cybersecurity und einer professionellen digitalen Präsenz.
           </p>
         </div>
 

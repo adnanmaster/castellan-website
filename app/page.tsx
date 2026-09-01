@@ -95,16 +95,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-b border-white/10 bg-panel/60">
-        <div className="section-shell grid divide-y divide-white/10 md:grid-cols-3 md:divide-x md:divide-y-0">
-          {["Fokussiert auf Schweizer KMU", "Nachvollziehbare Entscheidungen", "Direkter Ansprechpartner"].map((item) => (
-            <div key={item} className="flex min-h-24 items-center gap-3 py-6 md:px-7 first:md:pl-0 last:md:pr-0">
-              <Check className="h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
-              <p className="text-sm font-medium text-copy">{item}</p>
-            </div>
-          ))}
-        </div>
-      </section>
 
       <section id="unternehmen" className="content-section border-b border-white/10">
         <div className="section-shell">

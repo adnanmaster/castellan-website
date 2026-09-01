@@ -23,11 +23,11 @@ const newsreader = Newsreader({
 
 export const metadata: Metadata = {
   title: {
-    default: "Castellan | Cybersecurity für Schweizer KMU",
+    default: "Castellan | Digitale Lösungen für Schweizer KMU",
     template: "%s | Castellan",
   },
   description:
-    "Castellan entwickelt konsequente, transparente Cybersecurity-Lösungen für Schweizer KMU. Kapsule ist unser erstes Produkt für Schutz auf DNS-Ebene.",
+    "Castellan unterstützt Schweizer KMU mit Cybersecurity und digitaler Präsenz. Klar, konsequent und transparent.",
 };
 
 export default function RootLayout({
