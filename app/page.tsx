@@ -29,6 +29,25 @@ const principles = [
   },
 ];
 
+const serviceCards = [
+  {
+    eyebrow: "Cybersecurity",
+    title: "Kapsule",
+    description: "DNS-basierter Schutz, der riskante Verbindungen stoppt und Entscheidungen nachvollziehbar macht.",
+    href: "/product",
+    imageLabel: "Kapsule in einer modernen IT-Umgebung",
+    imageHint: "Kuratiertes Bild mit Netzwerk-, Security- oder Produktkontext",
+  },
+  {
+    eyebrow: "Digitaler Auftritt",
+    title: "Digitale Präsenz",
+    description: "Professionelle Websites, die Ihr Unternehmen klar positionieren und technisch sauber funktionieren.",
+    href: "/digitale-praesenz",
+    imageLabel: "Professioneller digitaler Markenauftritt",
+    imageHint: "Kuratiertes Bild eines modernen Schweizer Unternehmens oder digitalen Produkts",
+  },
+];
+
 const pilotSteps = [
   {
     number: "01",
@@ -128,6 +147,52 @@ export default function Home() {
                 </article>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      <section id="leistungen" className="content-section border-b border-white/10 bg-panel/35">
+        <div className="section-shell">
+          <SectionHeading
+            eyebrow="Leistungen"
+            title="Sicherheit und digitale Präsenz, klar umgesetzt."
+            description="Castellan unterstützt Schweizer KMU mit einem fokussierten Sicherheitsprodukt und professionellen digitalen Auftritten."
+          />
+
+          <div className="mt-14 grid gap-5 lg:grid-cols-2">
+            {serviceCards.map((service) => (
+              <article
+                key={service.title}
+                className="group relative flex min-h-[31rem] overflow-hidden rounded-xl border border-white/10 md:min-h-[38rem]"
+              >
+                <MediaPlaceholder
+                  fill
+                  label={service.imageLabel}
+                  hint={service.imageHint}
+                  className="transition-transform duration-500 ease-out group-hover:scale-[1.025]"
+                />
+                <div
+                  className="absolute inset-0 z-[1] bg-gradient-to-t from-black via-black/55 to-black/10"
+                  aria-hidden="true"
+                />
+
+                <div className="relative z-10 mt-auto w-full p-6 sm:p-8 md:p-10">
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">{service.eyebrow}</p>
+                  <h3 className="mt-4 text-balance text-3xl font-semibold leading-[1.05] tracking-[-0.035em] text-copy sm:text-4xl">
+                    {service.title}
+                  </h3>
+                  <p className="mt-4 max-w-md text-sm leading-6 text-white/75">{service.description}</p>
+                  <Link
+                    href={service.href}
+                    aria-label={`${service.title} – mehr erfahren`}
+                    className="mt-7 inline-flex min-h-12 w-full items-center justify-between gap-3 rounded-lg border border-white/20 bg-white/10 px-5 text-sm font-semibold text-copy backdrop-blur-xl transition-colors hover:border-accent hover:bg-accent hover:text-ink sm:w-auto sm:min-w-52"
+                  >
+                    Mehr erfahren
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </Link>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
