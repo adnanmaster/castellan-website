@@ -50,8 +50,8 @@ export default function PrivacyPage() {
                 8004 Zürich, Schweiz
                 <br />
                 E-Mail:{" "}
-                <a className="text-copy underline decoration-white/30 underline-offset-4 hover:decoration-accent" href="mailto:adnanhalder@protonmail.com">
-                  adnanhalder@protonmail.com
+                <a className="text-copy underline decoration-white/30 underline-offset-4 hover:decoration-accent" href="mailto:info@castellan-it.ch">
+                  info@castellan-it.ch
                 </a>
                 <br />
                 Telefon: +41 76 564 43 69
@@ -97,7 +97,7 @@ export default function PrivacyPage() {
                 Wenn Sie Castellan über das Kontaktformular, telefonisch oder per E-Mail kontaktieren, bearbeiten wir die von Ihnen übermittelten Angaben. Dazu können Name, Unternehmen, Funktion, geschäftliche Kontaktdaten, Inhalt der Anfrage und technische Kommunikationsdaten gehören. Die Bearbeitung erfolgt, um Ihre Anfrage zu beantworten, einen Gesprächstermin vorzubereiten oder einen möglichen Pilotbetrieb zu besprechen.
               </p>
               <p>
-                Beim Absenden des Kontaktformulars werden Name, geschäftliche E-Mail-Adresse, Unternehmen und Nachricht verschlüsselt an unsere Website übermittelt und über den E-Mail-Versanddienst Resend an unser Postfach bei Proton zugestellt. Zur Missbrauchsabwehr werden ausserdem technische Anfragedaten wie Zeitpunkt und IP-Adresse vorübergehend verarbeitet. Das Formular legt keine eigene Kundendatenbank an.
+                Beim Absenden des Kontaktformulars werden Name, geschäftliche E-Mail-Adresse, Unternehmen und Nachricht verschlüsselt an unsere Website übermittelt und über den E-Mail-Versanddienst Resend an unser Postfach bei Hostpoint zugestellt. Zur Missbrauchsabwehr werden ausserdem technische Anfragedaten wie Zeitpunkt und IP-Adresse vorübergehend verarbeitet. Das Formular legt keine eigene Kundendatenbank an.
               </p>
               <p>
                 Abgeschlossene Anfragen werden gelöscht, sobald sie für die Bearbeitung und eine mögliche Geschäftsbeziehung nicht mehr benötigt werden und keine gesetzlichen oder vertraglichen Aufbewahrungspflichten entgegenstehen. Eingehende Kontaktanfragen verwenden wir nicht für sachfremde Werbung.
@@ -145,6 +145,12 @@ export default function PrivacyPage() {
                 </a>.
               </p>
               <p>
+                Das geschäftliche E-Mail-Postfach wird von der Hostpoint AG in der Schweiz bereitgestellt. Weitere Informationen enthält die{" "}
+                <a className="text-copy underline decoration-white/30 underline-offset-4 hover:decoration-accent" href="https://www.hostpoint.ch/hostpoint/kontakt-agb.html#datenschutz" target="_blank" rel="noreferrer">
+                  Datenschutzerklärung von Hostpoint
+                </a>.
+              </p>
+              <p>
                 Für Kapsule werden Unterauftragnehmer und allfällige Bearbeitungen im Ausland vor dem jeweiligen Pilotbetrieb gegenüber dem Kunden dokumentiert. Kundendaten werden nicht verkauft.
               </p>
             </PrivacySection>
@@ -164,8 +170,8 @@ export default function PrivacyPage() {
             <PrivacySection title="11. Rechte betroffener Personen">
               <p>
                 Sie können im Rahmen des anwendbaren Datenschutzrechts insbesondere Auskunft über bearbeitete Personendaten sowie deren Berichtigung, Löschung oder Herausgabe verlangen und einer bestimmten Bearbeitung widersprechen. Für entsprechende Anliegen schreiben Sie an{" "}
-                <a className="text-copy underline decoration-white/30 underline-offset-4 hover:decoration-accent" href="mailto:adnanhalder@protonmail.com">
-                  adnanhalder@protonmail.com
+                <a className="text-copy underline decoration-white/30 underline-offset-4 hover:decoration-accent" href="mailto:info@castellan-it.ch">
+                  info@castellan-it.ch
                 </a>.
               </p>
               <p>
@@ -183,7 +189,7 @@ export default function PrivacyPage() {
             </PrivacySection>
           </div>
 
-          <p className="mt-8 text-xs text-quiet">Stand: Arbeitsentwurf vom 27. August 2026</p>
+          <p className="mt-8 text-xs text-quiet">Stand: Arbeitsentwurf vom 1. September 2026</p>
         </div>
       </section>
     </main>

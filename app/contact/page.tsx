@@ -23,7 +23,7 @@ const contactDetails = [
   },
   {
     label: "E-Mail",
-    value: "adnanhalder@protonmail.com",
+    value: "info@castellan-it.ch",
     note: "Antwort auf Ihre Anfrage",
     icon: Mail,
   },

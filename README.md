@@ -76,11 +76,11 @@ Die benötigten Variablen sind in `.env.example` dokumentiert. Für die lokale E
 
 ```env
 RESEND_API_KEY=re_...
-CONTACT_FROM_EMAIL="Castellan Website <onboarding@resend.dev>"
-CONTACT_TO_EMAIL=adnanhalder@protonmail.com
+CONTACT_FROM_EMAIL="Castellan IT Website <website@castellan-it.ch>"
+CONTACT_TO_EMAIL=info@castellan-it.ch
 ```
 
-`RESEND_API_KEY` wird im Resend-Dashboard erstellt. Die Testadresse `onboarding@resend.dev` kann nur an die E-Mail-Adresse des eigenen Resend-Kontos senden. Für den produktiven Betrieb sollte eine eigene Versanddomain in Resend verifiziert und `CONTACT_FROM_EMAIL` beispielsweise auf `Castellan Website <kontakt@castellan.ch>` gesetzt werden.
+`RESEND_API_KEY` wird im Resend-Dashboard erstellt. Die verifizierte Domain `castellan-it.ch` wird für den Versand verwendet; Antworten werden durch den gesetzten Reply-To-Header direkt an die im Formular angegebene Adresse des Besuchers gerichtet.
 
 In Vercel dieselben Werte unter **Settings → Environment Variables** hinterlegen und danach ein neues Deployment auslösen. Secrets gehören nie in Git.
 

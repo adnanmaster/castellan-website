@@ -28,8 +28,8 @@ const details = [
       <p>
         Telefon: +41 76 564 43 69
         <br />
-        E-Mail: <a href="mailto:adnanhalder@protonmail.com">adnanhalder@protonmail.com</a><br />
-        Web: <a href="https://castellan-one.vercel.app">castellan-one.vercel.app</a>
+        E-Mail: <a href="mailto:info@castellan-it.ch">info@castellan-it.ch</a><br />
+        Web: <a href="https://castellan-it.ch">castellan-it.ch</a>
       </p>
     ),
   },

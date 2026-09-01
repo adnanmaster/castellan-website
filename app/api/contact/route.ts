@@ -70,24 +70,18 @@ function cleanEnvironmentValue(value: string | undefined, fallback = "") {
   return (value ?? fallback).trim().replace(/^(["'])(.*)\1$/, "$2").trim();
 }
 
-function deliveryErrorMessage(status: number) {
-  if (status === 401) {
-    return "Der Versanddienst ist noch nicht korrekt eingerichtet (Fehler E401).";
-  }
-
-  if (status === 403) {
-    return "Resend hat den Testversand für diese Empfängeradresse abgelehnt (Fehler E403).";
-  }
-
-  if (status === 422) {
-    return "Die Absender- oder Empfängeradresse ist noch nicht korrekt konfiguriert (Fehler E422).";
-  }
-
-  if (status === 429) {
-    return "Der Versanddienst hat derzeit zu viele Anfragen erhalten. Bitte versuchen Sie es später erneut (Fehler E429).";
-  }
-
-  return `Die Anfrage konnte gerade nicht zugestellt werden (Fehler E${status}).`;
+function escapeHtml(value: string) {
+  return value.replace(
+    /[&<>'"]/g,
+    (character) =>
+      ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "'": "&#39;",
+        '"': "&quot;",
+      })[character] ?? character,
+  );
 }
 
 export async function POST(request: NextRequest) {
@@ -160,12 +154,12 @@ export async function POST(request: NextRequest) {
 
   const from = cleanEnvironmentValue(
     process.env.CONTACT_FROM_EMAIL,
-    "Castellan Website <onboarding@resend.dev>",
+    "Castellan IT Website <website@castellan-it.ch>",
   );
-  const to = cleanEnvironmentValue(process.env.CONTACT_TO_EMAIL, "adnanhalder@protonmail.com");
+  const to = cleanEnvironmentValue(process.env.CONTACT_TO_EMAIL, "info@castellan-it.ch");
   const safeCompany = cleanHeaderValue(company).slice(0, 80);
   const emailText = [
-    "Neue Kontaktanfrage über die Castellan-Website",
+    "Neue Kontaktanfrage über castellan-it.ch",
     "",
     `Name: ${name}`,
     `E-Mail: ${email}`,
@@ -174,6 +168,24 @@ export async function POST(request: NextRequest) {
     "Nachricht:",
     message,
   ].join("\n");
+  const emailHtml = `<!doctype html>
+<html lang="de">
+  <body style="margin:0;padding:32px;background:#f5f3ee;color:#151515;font-family:Arial,sans-serif;line-height:1.6">
+    <main style="max-width:640px;margin:0 auto;padding:32px;background:#ffffff;border:1px solid #e4e0d7">
+      <p style="margin:0 0 8px;color:#c85b00;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase">Castellan IT</p>
+      <h1 style="margin:0 0 28px;font-size:24px;line-height:1.25">Neue Kontaktanfrage</h1>
+      <table role="presentation" style="width:100%;border-collapse:collapse;font-size:15px">
+        <tr><td style="width:120px;padding:8px 16px 8px 0;color:#666;vertical-align:top">Name</td><td style="padding:8px 0;font-weight:600">${escapeHtml(name)}</td></tr>
+        <tr><td style="width:120px;padding:8px 16px 8px 0;color:#666;vertical-align:top">Unternehmen</td><td style="padding:8px 0;font-weight:600">${escapeHtml(company)}</td></tr>
+        <tr><td style="width:120px;padding:8px 16px 8px 0;color:#666;vertical-align:top">E-Mail</td><td style="padding:8px 0"><a href="mailto:${escapeHtml(email)}" style="color:#151515">${escapeHtml(email)}</a></td></tr>
+      </table>
+      <div style="margin-top:28px;padding-top:24px;border-top:1px solid #e4e0d7">
+        <p style="margin:0 0 8px;color:#666;font-size:14px">Nachricht</p>
+        <p style="margin:0;font-size:15px;white-space:normal">${escapeHtml(message).replace(/\r?\n/g, "<br>")}</p>
+      </div>
+    </main>
+  </body>
+</html>`;
 
   try {
     const response = await fetch("https://api.resend.com/emails", {
@@ -190,6 +202,7 @@ export async function POST(request: NextRequest) {
         reply_to: email,
         subject: `Neue Website-Anfrage · ${safeCompany}`,
         text: emailText,
+        html: emailHtml,
       }),
       signal: AbortSignal.timeout(10_000),
     });
@@ -204,7 +217,7 @@ export async function POST(request: NextRequest) {
         type: providerError?.name,
         message: providerError?.message,
       });
-      return json(deliveryErrorMessage(response.status), 502);
+      return json("Die Anfrage konnte gerade nicht zugestellt werden. Bitte versuchen Sie es später erneut.", 502);
     }
   } catch (error) {
     console.error("Contact form delivery failed.", {
